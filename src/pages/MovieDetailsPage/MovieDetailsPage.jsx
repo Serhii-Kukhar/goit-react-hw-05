@@ -38,7 +38,9 @@ const MovieDetailsPage = () => {
   };
   return (
     <div>
-      <Link to={goBackRef.current || "/movies"}>Go back</Link>
+      <Link to={goBackRef.current || "/movies"} className={s.goBack}>
+        ← Go back
+      </Link>
       {isLoading ? (
         <Loader />
       ) : (
