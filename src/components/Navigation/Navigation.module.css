@@ -1,0 +1,32 @@
+.nav {
+  display: flex;
+  gap: 30px;
+}
+.link {
+  color: white;
+  text-decoration: none;
+  border-radius: 40px;
+  border: 1px solid;
+  font-size: 1em;
+  width: 70px;
+  cursor: pointer;
+  padding: 7px;
+
+  &:hover {
+    border-color: rgba(66, 220, 255, 0.5);
+    box-shadow: 0 0 10px 2px rgba(66, 220, 255, 0.5),
+      inset 0 0 10px 2px rgba(66, 220, 255, 0.3);
+    background-color: rgba(66, 220, 255, 0.5);
+  }
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.active {
+  border-color: rgba(66, 220, 255, 0.5);
+  box-shadow: 0 0 10px 2px rgba(66, 220, 255, 0.5),
+    inset 0 0 10px 2px rgba(66, 220, 255, 0.3);
+  background-color: rgba(66, 220, 255, 0.5);
+  text-decoration: none;
+}
