@@ -14,6 +14,7 @@ const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [inputValue, setInputValue] = useState(query);
 
   useEffect(() => {
     if (!query) return;
@@ -42,22 +43,17 @@ const MoviesPage = () => {
   }, [query]);
 
   const handleChange = (e) => {
-    const newQuery = e.target.value.trim();
-    if (newQuery === "") {
-      setSearchParams({});
-    } else {
-      setSearchParams({ query: newQuery });
-    }
+    setInputValue(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const trimmed = query.trim();
+    const trimmed = inputValue.trim();
     if (!trimmed) {
       toast.error("Поле не може бути порожнім!");
-    } else {
-      setSearchParams({ query: trimmed });
+      return;
     }
+    setSearchParams({ query: trimmed });
   };
 
   return (
@@ -67,7 +63,7 @@ const MoviesPage = () => {
           className={s.input}
           type="text"
           name="query"
-          value={query}
+          value={inputValue}
           onChange={handleChange}
           placeholder="Search for movies..."
         />
